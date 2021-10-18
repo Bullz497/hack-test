@@ -1,0 +1,57 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define ull unsigned long long
+#define F first
+#define S second
+#define pb push_back
+#define run(i,a,b) for(ll i=a;i<b;i++)
+#define runrev(i,a,b) for(ll i=a;i>=b;i--)
+#define all(v) v.begin(),v.end()
+#define vin(name,N) vi name(N);run(i,0,N){cin>>name[i];}
+ 
+bool isPrime(int x) {
+    for (int d = 2; d * d <= x; d++) {
+        if (x % d == 0)
+            return false;
+    }
+    return true;
+}
+ 
+typedef vector<int> vi;
+ 
+bool sortbysec(const pair<int,int> &a,
+              const pair<int,int> &b)
+{
+    return (a.second < b.second);
+}
+ 
+void solve()
+{
+   ll n,h;
+   cin>>n>>h;
+   vin(v,n);
+   sort(v.begin(),v.end(),greater<int>());
+   ll f=v[0];
+   ll s=v[1];
+   ll ans=(h/(f+s))*2;
+   if(h%(f+s)){
+   if(h%(f+s)>f)
+   ans+=2;
+   else ans++;
+   }
+   cout<<ans<<endl;
+}
+ 
+int main()
+{
+ ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+ 
+  long int t;
+  cin>>t;
+  while(t--)
+  {
+     solve();
+  }
+}
